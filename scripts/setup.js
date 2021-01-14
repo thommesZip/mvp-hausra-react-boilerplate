@@ -1,3 +1,4 @@
+const prompt = require('prompt')
 var spawnSync = require('child_process').spawnSync
 
 var FAILURE = 'failure'
@@ -44,15 +45,63 @@ function run(title, subtitle, command, options) {
 }
 
 
-function main() {
+async function main() {
   var result
 
   result = run(
-    'Installing API stuff',
+    'xxxxxxxx',
+    '...................',
+    `pwd`,
+  )
+  if (result === FAILURE) return
+
+
+  result = run(
+    'Installing Dev Mode',
     'Stting up Hasura & installing dependencies for custom actions',
+    `pwd && npm install`,
+  )
+  if (result === FAILURE) return
+
+  result = run(
+    'Creating React App',
+    'Stting up Hasura & installing dependencies for custom actions',
+    `npx create-react-app frontend`,
+  )
+  if (result === FAILURE) return
+
+  result = run(
+    'Install React Stuff',
+    'Stting up Hasura & installing dependencies for custom actions',
+    `cd frontend \
+    && npm install -D tailwindcss postcss postcss-loader chokidar-cli npm-run-all react-router-dom graphql-request graphql react-query aws-amplify`,
+  )
+  if (result === FAILURE) return
+
+
+  result = run(
+    'Copy React Boilerplate',
+    '...',
+    `cp ./scripts/react-boilerplate/tailwind.config.js ./frontend \
+    && cp ./scripts/react-boilerplate/postcss.config.js ./frontend \
+    && cp -r ./scripts/react-boilerplate/src/css ./frontend/src \
+    && cp -f ./scripts/react-boilerplate/src/App.js ./frontend/src/App.js \
+    && cp -r ./scripts/react-boilerplate/src/components ./frontend/src \
+    && cp -r ./scripts/react-boilerplate/src/pages ./frontend/src \
+    && rm -f  ./frontend/src/App.css \
+    && node ./scripts/setScripts.js \
+    `,
+  )
+  if (result === FAILURE) return
+
+  result = run(
+    'Installing API stuff',
+    'Setting up Hasura & installing dependencies for custom actions',
     `cd api \
     && npm install \
     && docker-compose up -d \
+    && echo "😴 Waiting a few seconds for hasura to become available" \
+    && sleep 5 \
     && cd hasura \
     && hasura metadata apply --admin-secret myadminsecretkey`,
   )

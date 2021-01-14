@@ -3,10 +3,29 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "setup": "node scripts/setup.js"
+  "dependencies": {
+    "create-react-app": "^4.0.1",
+    "postcss": "^8.2.4",
+    "postcss-loader": "^4.1.0",
+    "tailwindcss": "^2.0.2"
   },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "prompt": "^1.1.0"
+  },
+  "scripts": {
+    "setup": "node scripts/setup.js",
+    "dev": "concurrently \"cd api && npm run dev\" \"cd frontend && npm start\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thommesZip/mvp-hausra-react-boilerplate.git"
+  },
+  "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thommesZip/mvp-hausra-react-boilerplate/issues"
+  },
+  "homepage": "https://github.com/thommesZip/mvp-hausra-react-boilerplate#readme"
 }
