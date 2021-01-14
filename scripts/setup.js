@@ -1,4 +1,3 @@
-const prompt = require('prompt')
 var spawnSync = require('child_process').spawnSync
 
 var FAILURE = 'failure'
