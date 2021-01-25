@@ -47,7 +47,7 @@ function run(title, subtitle, command, options) {
 function main() {
   var result
 
-/*
+
   result = run(
     'Installing Dev Mode',
     'Stting up Hasura & installing dependencies for custom actions',
@@ -70,7 +70,7 @@ function main() {
     && npm install -D tailwindcss postcss postcss-loader chokidar-cli npm-run-all react-router-dom graphql-request graphql react-query aws-amplify`,
   )
   if (result === FAILURE) return
-*/
+
 
   result = run(
     'Copy React Boilerplate',
