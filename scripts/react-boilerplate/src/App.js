@@ -5,16 +5,20 @@ import {
   Redirect,
   useLocation
 } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from 'react-query'
 
 import logo from './logo.svg';
-import './css/tailwind.output.css'
+import './styles/tailwind.output.css'
 
 
 import Layout from './components/general/Layout'
-import pages from './pages'
+import pages from './screens'
+
+const queryClient = new QueryClient()
 
 function App() {
   return (
+    <QueryClientProvider client={queryClient}>
     <Router>
       <Layout>
       <Switch>
@@ -26,6 +30,7 @@ function App() {
         
       </Layout>
     </Router>
+    </QueryClientProvider>
   );
 }
 

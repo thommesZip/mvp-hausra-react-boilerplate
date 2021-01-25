@@ -44,17 +44,10 @@ function run(title, subtitle, command, options) {
 }
 
 
-async function main() {
+function main() {
   var result
 
-  result = run(
-    'xxxxxxxx',
-    '...................',
-    `pwd`,
-  )
-  if (result === FAILURE) return
-
-
+/*
   result = run(
     'Installing Dev Mode',
     'Stting up Hasura & installing dependencies for custom actions',
@@ -73,20 +66,25 @@ async function main() {
     'Install React Stuff',
     'Stting up Hasura & installing dependencies for custom actions',
     `cd frontend \
+    && npm i -S graphql-request \
     && npm install -D tailwindcss postcss postcss-loader chokidar-cli npm-run-all react-router-dom graphql-request graphql react-query aws-amplify`,
   )
   if (result === FAILURE) return
-
+*/
 
   result = run(
     'Copy React Boilerplate',
     '...',
     `cp ./scripts/react-boilerplate/tailwind.config.js ./frontend \
     && cp ./scripts/react-boilerplate/postcss.config.js ./frontend \
-    && cp -r ./scripts/react-boilerplate/src/css ./frontend/src \
+    && cp -r ./scripts/react-boilerplate/src/styles ./frontend/src \
+    && cp -r ./scripts/react-boilerplate/src/context ./frontend/src \
+    && cp -r ./scripts/react-boilerplate/src/utils ./frontend/src \
+    && cp -r ./scripts/react-boilerplate/src/assets ./frontend/src \
     && cp -f ./scripts/react-boilerplate/src/App.js ./frontend/src/App.js \
     && cp -r ./scripts/react-boilerplate/src/components ./frontend/src \
-    && cp -r ./scripts/react-boilerplate/src/pages ./frontend/src \
+    && cp -r ./scripts/react-boilerplate/src/hooks ./frontend/src \
+    && cp -r ./scripts/react-boilerplate/src/screens ./frontend/src \
     && rm -f  ./frontend/src/App.css \
     && node ./scripts/setScripts.js \
     `,

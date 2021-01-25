@@ -34,20 +34,20 @@ package:
     #- '**/*'
 
 functions:
-  #remote-schema:
-  #  handler: lambdas/remote-schema/index.handler
-  #  package:
-  #    include:
-  #      - lambdas/remote-schema/**
-  #  events:
-  #    - http:
-  #        path: remote-schema
-  #        method: post
-  #        cors: true
-  #    - http:
-  #        path: remote-schema
-  #        method: get
-  #        cors: true
+  remote-schema:
+    handler: lambdas/remote-schema/index.handler
+    package:
+      include:
+        - lambdas/remote-schema/**
+    events:
+      - http:
+          path: remote-schema
+          method: post
+          cors: true
+      - http:
+          path: remote-schema
+          method: get
+          cors: true
   actions:
     handler: lambdas/actions/index.handler
     events: 
@@ -91,17 +91,13 @@ custom:
     ebpackConfig: ./webpack.config.js
     includeModules: true
     packagerOptions:
-      scripts: # this is the magic
+      scripts: # if using prisma
         #- prisma generate
-  # apigwBinary:
-  #   types:
-  #     - 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-  #     - '*/*'
       
-#resources:
-#  - ${file(resources/rds.yml)}
+
 
 resources:
+  #  - ${file(resources/rds.yml)}
   #- ${file(resources/cognito.yml)}
   #- ${file(resources/vpc.yml)}
   #- ${file(resources/elb.yml)}

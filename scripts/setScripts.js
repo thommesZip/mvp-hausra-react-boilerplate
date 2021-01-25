@@ -7,8 +7,8 @@ const filePath = './frontend/package.json'
     
     if (!packaged.scripts) packaged.scripts = {}
     packaged.scripts = {
-      'build:tailwind': 'tailwindcss build src/css/tailwind.css -o src/css/tailwind.output.css',
-      'watch:tailwind': "chokidar 'src/css/**/*.css' 'src/css/**/*.scss' --ignore src/css/tailwind.output.css -c 'npm run build:tailwind'",
+      'build:tailwind': 'tailwindcss build src/styles/tailwind.css -o src/styles/tailwind.output.css',
+      'watch:tailwind': "chokidar 'src/styles/**/*.css' 'src/styles/**/*.scss' --ignore src/styles/tailwind.output.css -c 'npm run build:tailwind'",
       prestart: 'npm run build:tailwind',
       prebuild: 'npm run build:tailwind',
       'start:react': 'react-scripts start',
@@ -17,7 +17,6 @@ const filePath = './frontend/package.json'
       test: 'react-scripts test',
       eject: 'react-scripts eject'
     }
-    console.log(packaged.scripts)
     //packaged.scripts[script.key] = script.value
     jsonfile.writeFileSync(filePath, packaged, {spaces: 2})
   } catch (e) {
