@@ -1,5 +1,6 @@
 var spawnSync = require('child_process').spawnSync
 
+
 var FAILURE = 'failure'
 var SUCCESS = 'success'
 
@@ -19,7 +20,7 @@ function run(title, subtitle, command, options) {
 
   console.log(color('info', '\t' + title))
   console.log(color('subtitle', '\t' + subtitle))
-  console.log(color('subtitle', '\t running: ' + command))
+  // console.log(color('subtitle', '\t running: ' + command))
 
   var result = spawnSync(command, {stdio: 'inherit', shell: true})
 
@@ -43,6 +44,7 @@ function run(title, subtitle, command, options) {
 
 function main() {
   var result
+
 
   result = run(
     'Installing API stuff',

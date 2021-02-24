@@ -1,5 +1,5 @@
 # MVP Starterkit (Hasura/ React)
-This is my starter kit for applications based on Hasura GraphQL engine. API and frontend are in single repository to get started immediately.
+This is my starter kit for applications based on Hasura GraphQL engine & React.js. API and frontend are in single repository to get started immediately.
 
 ### This starter kit uses:
 
