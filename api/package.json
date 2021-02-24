@@ -7,7 +7,7 @@
     "start:hasura": "docker-compose up -d && sleep 5 && open http://localhost:8080",
     "stop": "docker-compose down",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "logs": "docker-compose logs teacherapp_graphql-engine_1 -f",
+    "logs": "docker-compose logs api_graphql-engine_1 -f",
     "dev": "npm run start:hasura && npx serverless offline start -r eu-central-1 --noTimeout --host 0.0.0.0 --config serverless.local.yaml --stage dev"
   },
   "keywords": [],

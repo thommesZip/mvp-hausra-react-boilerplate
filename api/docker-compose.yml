@@ -8,7 +8,9 @@ services:
     volumes:
     - db_data:/var/lib/postgresql/data
     environment:
-      POSTGRES_PASSWORD: postgrespassword
+      POSTGRES_DB: ${DATABASE_NAME}
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
   graphql-engine:
     image: hasura/graphql-engine:v1.3.2
     ports:
@@ -20,12 +22,10 @@ services:
       HASURA_GRAPHQL_DATABASE_URL: postgres://${DATABASE_USERNAME}:${DATABASE_PASSWORD}@postgres:5432/${DATABASE_NAME}
       ACTION_BASE_URL: ${ACTION_BASE_URL}
       REMOTE_SCHEMA_BASE_URL: ${REMOTE_SCHEMA_BASE_URL}
-      ## enable the console served by server
-      HASURA_GRAPHQL_ENABLE_CONSOLE: "true" # set to "false" to disable console
-      ## enable debugging mode. It is recommended to disable this in production
+      HASURA_GRAPHQL_ENABLE_CONSOLE: "true"
+      ## debugging mode?
       HASURA_GRAPHQL_DEV_MODE: "true"
       HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log, query-log
-      ## uncomment next line to set an admin secret
       HASURA_GRAPHQL_ADMIN_SECRET: ${HASURA_GRAPHQL_ADMIN_SECRET}
       ##HASURA_GRAPHQL_JWT_SECRET: "{\"claims_format\": \"stringified_json\", \"type\": \"RS256\", \"jwk_url\": \"https://cognito-idp.eu-central-1.amazonaws.com/eu-central-1_sPZAH2jQf/.well-known/jwks.json\"}"
 volumes:

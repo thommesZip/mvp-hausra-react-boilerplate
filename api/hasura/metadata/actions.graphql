@@ -2,9 +2,6 @@ type Query {
   helloWorld : HelloWorldOutput
 }
 
-
-
-
 type HelloWorldOutput {
   helloMessage : String!
 }
