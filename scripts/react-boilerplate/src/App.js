@@ -6,9 +6,10 @@ import {
   useLocation
 } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from 'react-query'
+// import { withAuthenticator, AmplifySignOut } from "@aws-amplify/ui-react";
 
 import logo from './logo.svg';
-import './styles/tailwind.output.css'
+
 
 
 import Layout from './components/general/Layout'
@@ -35,3 +36,4 @@ function App() {
 }
 
 export default App;
+// export default withAuthenticator(App);

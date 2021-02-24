@@ -19,6 +19,9 @@ This is my starter kit for applications based on Hasura GraphQL engine & React.j
 
 
   ## Getting started
+
+  Prerequisites are Docker & Node.js.
+
   ```
   git clone git@github.com:thommesZip/mvp-hausra-react-boilerplate.git my-new-project
   cd my-new-project

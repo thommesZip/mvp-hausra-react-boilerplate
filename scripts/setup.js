@@ -47,7 +47,7 @@ function main() {
 
 
   result = run(
-    'Installing API stuff',
+    'Installing API dependencies',
     'Setting up Hasura & installing dependencies for custom actions',
     `cd api \
     && npm install \
@@ -62,7 +62,7 @@ function main() {
 
   result = run(
     'Installing Dev Mode',
-    'Setting up Hasura & installing dependencies for custom actions',
+    '',
     `pwd && npm install`,
   )
   if (result === FAILURE) return
@@ -79,7 +79,7 @@ function main() {
     '',
     `cd frontend \
     && npm i -S graphql-request \
-    && npm install -D postcss postcss-loader chokidar-cli npm-run-all react-router-dom graphql-request graphql react-query aws-amplify`,
+    && npm install -D postcss postcss-loader chokidar-cli npm-run-all react-router-dom graphql-request graphql react-query aws-amplify @aws-amplify/ui-react`,
   )
   if (result === FAILURE) return
 
@@ -102,7 +102,12 @@ function main() {
   )
   if (result === FAILURE) return
 
-  
+  result = run(
+    'Initializing AWS Amplify Project',
+    '',
+    `cd frontend && npm install -g @aws-amplify/cli && amplify init`,
+  )
+  if (result === FAILURE) return
 
 }
 
